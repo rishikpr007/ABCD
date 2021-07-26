@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ABCD.Models.Seller>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSeller")
+</p>
+<table class="table"style="background-color:powderblue; color :darkblue;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SellerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditSeller", new { id=item.SellerID }) |
+            @Html.ActionLink("Delete", "DeleteSeller", new { id=item.SellerID })
+        </td>
+    </tr>
+}
+
+</table>
